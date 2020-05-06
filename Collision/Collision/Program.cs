@@ -39,13 +39,17 @@ namespace ConsoleApplication1
             private void hide()
             {
                 int cursposX, cursposY;
-
+                
+                // Speicher die aktuelle Cursorposition
                 cursposX = Console.CursorLeft;
                 cursposY = Console.CursorTop;
 
+                // Setzt die Cursorposition auf das gewünschte objekt
                 Console.SetCursorPosition(posx, posy);
+                // Überschreibt das Objekt mit einer leertaste
                 Console.Write(" ");
-
+                
+                // Setzt die ursprüngliche Cursorposition
                 Console.SetCursorPosition(cursposX, cursposY);   
             }
 
@@ -54,12 +58,16 @@ namespace ConsoleApplication1
             {
                 int cursposX, cursposY;
 
+                // Speicher die aktuelle Cursorposition
                 cursposX = Console.CursorLeft;
                 cursposY = Console.CursorTop;
 
+                // Setzt Cursorposition auf gewünschten Ort
                 Console.SetCursorPosition(posx, posy);
+                // Schreibt 0 auf den gewünschten Ort
                 Console.Write("0");
 
+                // Setzt die ursprüngliche Cursorposition
                 Console.SetCursorPosition(cursposX, cursposY);
             }
 
@@ -92,6 +100,7 @@ namespace ConsoleApplication1
 
                 // Setzt die Cursorposition auf neue zufallsort
                 Console.SetCursorPosition(newcursX, newcursY);
+                // Schreibt 0 auf den gewünschten Ort
                 Console.Write("0");
 
                 // Setzt die Cursorposition wo es vorher war
