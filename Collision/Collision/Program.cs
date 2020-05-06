@@ -57,16 +57,22 @@ namespace ConsoleApplication1
             private void show()
             {
                 int cursposX, cursposY;
-
+                // Speichert die originale Textfarbe
+                ConsoleColor originalcolor = Console.ForegroundColor;
+                
                 // Speicher die aktuelle Cursorposition
                 cursposX = Console.CursorLeft;
                 cursposY = Console.CursorTop;
 
+                // Setzt die Schriftfarbe auf eine ausgewhälte farbe
+                Console.ForegroundColor = farbe;
                 // Setzt Cursorposition auf gewünschten Ort
                 Console.SetCursorPosition(posx, posy);
                 // Schreibt 0 auf den gewünschten Ort
                 Console.Write("0");
 
+                // Setzt die Textfarbe wieder auf das Originale
+                Console.ForegroundColor = originalcolor;
                 // Setzt die ursprüngliche Cursorposition
                 Console.SetCursorPosition(cursposX, cursposY);
             }
@@ -76,6 +82,8 @@ namespace ConsoleApplication1
             {   
                 int cursposX, cursposY;
                 int newcursX ,newcursY;
+                // Speichert die originale Textfarbe
+                ConsoleColor originalcolor = Console.ForegroundColor;
 
                 // Erstellt zufallszahlen für eine neue position
                 Random ZufallsZahl = new Random();
@@ -93,6 +101,8 @@ namespace ConsoleApplication1
                 cursposX = Console.CursorLeft;
                 cursposY = Console.CursorTop;
 
+                 // Setzt die Schriftfarbe auf eine ausgewhälte farbe
+                Console.ForegroundColor = farbe;
                 // Setzt die Cursorposition auf gewünschtes Objekt
                 Console.SetCursorPosition(posx, posy);
                 // Schreibt C für collision auf die Cursorposition
@@ -103,6 +113,8 @@ namespace ConsoleApplication1
                 // Schreibt 0 auf den gewünschten Ort
                 Console.Write("0");
 
+                // Setzt die Textfarbe wieder auf das Originale
+                Console.ForegroundColor = originalcolor;
                 // Setzt die Cursorposition wo es vorher war
                 Console.SetCursorPosition(cursposX, cursposY);
             }
