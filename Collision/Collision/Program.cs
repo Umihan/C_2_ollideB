@@ -38,20 +38,20 @@ namespace ConsoleApplication1
 
             private void hide()
             {
+                
+            }
+
+            private void show()
+            {
                 int cursposX, cursposY;
 
                 cursposX = Console.CursorLeft;
                 cursposY = Console.CursorTop;
 
                 Console.SetCursorPosition(posx, posy);
-                Console.Write(" ");
+                Console.Write("0");
 
                 Console.SetCursorPosition(cursposX, cursposY);
-            }
-
-            private void show()
-            {
-              
             }
 
             private void collide()
