@@ -34,15 +34,31 @@ namespace ConsoleApplication1
             {
             }
             //Private Methoden
-            void show()
+
+
+            private void hide()
             {
+                int cursposX, cursposY;
+
+                cursposX = Console.CursorLeft;
+                cursposY = Console.CursorTop;
+
+                Console.SetCursorPosition(posx, posy);
+                Console.Write(" ");
+
+                Console.SetCursorPosition(cursposX, cursposY);
             }
-            void hide()
+
+            private void show()
             {
+              
             }
-            void collide()
+
+            private void collide()
             {
+            
             }
+
             //Öffentliche Methoden
             
             //Gross Patrick
@@ -133,8 +149,10 @@ namespace ConsoleApplication1
                 //Ende Methode "Move"
             }
 
-
+            
         }
+
+        
 
         static void Main(string[] args)
         {
