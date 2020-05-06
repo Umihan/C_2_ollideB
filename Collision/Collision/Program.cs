@@ -35,12 +35,21 @@ namespace ConsoleApplication1
             }
             //Private Methoden
 
-
+            // Thomas Zöschg
             private void hide()
             {
-                
+                int cursposX, cursposY;
+
+                cursposX = Console.CursorLeft;
+                cursposY = Console.CursorTop;
+
+                Console.SetCursorPosition(posx, posy);
+                Console.Write(" ");
+
+                Console.SetCursorPosition(cursposX, cursposY);   
             }
 
+            // Thomas Zöschg
             private void show()
             {
                 int cursposX, cursposY;
@@ -54,9 +63,39 @@ namespace ConsoleApplication1
                 Console.SetCursorPosition(cursposX, cursposY);
             }
 
+            // Thomas Zöschg
             private void collide()
-            {
-            
+            {   
+                int cursposX, cursposY;
+                int newcursX ,newcursY;
+
+                // Erstellt zufallszahlen für eine neue position
+                Random ZufallsZahl = new Random();
+                do
+                {
+                    newcursX = ZufallsZahl.Next(1, seite * 2 - 1);
+                    newcursY = ZufallsZahl.Next(1, seite - 1);
+                    // Prüft ob es die neue position noch nicht gibt 
+                } while (feld[newcursX, newcursY] != 1);
+
+                // Speichert neue zufällige position in feld
+                feld[newcursX, newcursY] = 1;
+
+                // Merkt sich die aktuelle Curserposition
+                cursposX = Console.CursorLeft;
+                cursposY = Console.CursorTop;
+
+                // Setzt die Cursorposition auf gewünschtes Objekt
+                Console.SetCursorPosition(posx, posy);
+                // Schreibt C für collision auf die Cursorposition
+                Console.Write("C");
+
+                // Setzt die Cursorposition auf neue zufallsort
+                Console.SetCursorPosition(newcursX, newcursY);
+                Console.Write("0");
+
+                // Setzt die Cursorposition wo es vorher war
+                Console.SetCursorPosition(cursposX, cursposY);
             }
 
             //Öffentliche Methoden
