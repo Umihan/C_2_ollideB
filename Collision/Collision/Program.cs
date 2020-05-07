@@ -51,7 +51,7 @@ namespace ConsoleApplication1
 
                 feld[posx, posy] = 1; // Feld besetzen
 
-                farbe = (ConsoleColor)randomGenerator.Next(17); // Farbe generieren
+                farbe = (ConsoleColor)randomGenerator.Next(16); // Farbe generieren
                 
             }
             //Private Methoden
@@ -174,7 +174,7 @@ namespace ConsoleApplication1
             {
                 for (int j = 0; j < Anzahl; j++)
                 {
-                    meineEiner[j].Move();
+                   meineEiner[j].Move();
                 }
                 System.Threading.Thread.Sleep(10);
 
