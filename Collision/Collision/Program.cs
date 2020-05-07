@@ -89,7 +89,7 @@ namespace ConsoleApplication1
                 Random ZufallsZahl = new Random();
                 do
                 {
-                    newcursX = ZufallsZahl.Next(1, seite * 2 - 1);
+                    newcursX = ZufallsZahl.Next(1, seite - 1);
                     newcursY = ZufallsZahl.Next(1, seite - 1);
                     // Prüft ob es die neue position noch nicht gibt 
                 } while (feld[newcursX, newcursY] != 1);
