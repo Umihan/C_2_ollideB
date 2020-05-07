@@ -55,15 +55,91 @@ namespace ConsoleApplication1
                 
             }
             //Private Methoden
-            void show()
+
+            // Thomas Zöschg
+            private void hide()
             {
+                int cursposX, cursposY;
+                
+                // Speicher die aktuelle Cursorposition
+                cursposX = Console.CursorLeft;
+                cursposY = Console.CursorTop;
+
+                // Setzt die Cursorposition auf das gewünschte objekt
+                Console.SetCursorPosition(posx, posy);
+                // Überschreibt das Objekt mit einer leertaste
+                Console.Write(" ");
+                
+                // Setzt die ursprüngliche Cursorposition
+                Console.SetCursorPosition(cursposX, cursposY);   
             }
-            void hide()
+
+            // Thomas Zöschg
+            private void show()
             {
+                int cursposX, cursposY;
+                // Speichert die originale Textfarbe
+                ConsoleColor originalcolor = Console.ForegroundColor;
+                
+                // Speicher die aktuelle Cursorposition
+                cursposX = Console.CursorLeft;
+                cursposY = Console.CursorTop;
+
+                // Setzt die Schriftfarbe auf eine ausgewhälte farbe
+                Console.ForegroundColor = farbe;
+                // Setzt Cursorposition auf gewünschten Ort
+                Console.SetCursorPosition(posx, posy);
+                // Schreibt 0 auf den gewünschten Ort
+                Console.Write("0");
+
+                // Setzt die Textfarbe wieder auf das Originale
+                Console.ForegroundColor = originalcolor;
+                // Setzt die ursprüngliche Cursorposition
+                Console.SetCursorPosition(cursposX, cursposY);
             }
-            void collide()
-            {
+
+            // Thomas Zöschg
+            private void collide()
+            {   
+                int cursposX, cursposY;
+                int newcursX ,newcursY;
+                // Speichert die originale Textfarbe
+                ConsoleColor originalcolor = Console.ForegroundColor;
+
+                // Erstellt zufallszahlen für eine neue position
+                Random ZufallsZahl = new Random();
+                do
+                {
+                    newcursX = ZufallsZahl.Next(1, seite * 2 - 1);
+                    newcursY = ZufallsZahl.Next(1, seite - 1);
+                    // Prüft ob es die neue position noch nicht gibt 
+                } while (feld[newcursX, newcursY] != 1);
+
+                // Speichert neue zufällige position in feld
+                feld[newcursX, newcursY] = 1;
+
+                // Merkt sich die aktuelle Curserposition
+                cursposX = Console.CursorLeft;
+                cursposY = Console.CursorTop;
+
+                 // Setzt die Schriftfarbe auf eine ausgewhälte farbe
+                Console.ForegroundColor = farbe;
+                // Setzt die Cursorposition auf gewünschtes Objekt
+                Console.SetCursorPosition(posx, posy);
+                // Schreibt C für collision auf die Cursorposition
+                Console.Write("C");
+
+                // Setzt die Cursorposition auf neue zufallsort
+                Console.SetCursorPosition(newcursX, newcursY);
+                // Schreibt 0 auf den gewünschten Ort
+                Console.Write("0");
+
+                // Setzt die Textfarbe wieder auf das Originale
+                Console.ForegroundColor = originalcolor;
+                // Setzt die Cursorposition wo es vorher war
+                Console.SetCursorPosition(cursposX, cursposY);
             }
+
             //Öffentliche Methoden
             
             //Gross Patrick
@@ -154,8 +230,10 @@ namespace ConsoleApplication1
                 //Ende Methode "Move"
             }
 
-
+            
         }
+
+        
 
         static void Main(string[] args)
         {
