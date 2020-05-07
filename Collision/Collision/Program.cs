@@ -258,5 +258,71 @@ namespace ConsoleApplication1
 
             }
         }
+
+        //Aufgabe D, Weiss Lukas
+
+        static bool SaveConfig(int Anzahl)
+        {
+            string Pfad = @"c:\tmp\config.ini";
+            string Inhalt = "";
+            bool gespeichert = false;
+
+            StreamWriter sw = new StreamWriter(Pfad);
+            sw.WriteLine(Anzahl);
+            sw.Close();
+
+            using (StreamReader sr = File.OpenText(Pfad))
+            {
+                Inhalt = sr.ReadLine();
+            }
+
+            if (Anzahl == Convert.ToInt16(Inhalt))
+            {
+                gespeichert = true;
+            }
+
+            return gespeichert;
+        }
+
+        static bool LoadConfig(ref int Anzahl)
+        {
+            string Pfad = @"c:\tmp\config.ini";
+            string Inhalt = "";
+            bool keinfehler = false;
+
+            if (File.Exists(Pfad))
+            {
+                using (StreamReader sr = File.OpenText(Pfad))
+                {
+                    Inhalt = sr.ReadLine();
+                }
+
+                if (Inhalt == " " || Inhalt == "0" || Inhalt == null)
+                {
+                    Anzahl = 0;
+                    keinfehler = false;
+                }
+                else
+                {
+                    try
+                    {
+                        Anzahl = Convert.ToInt16(Inhalt);
+                        keinfehler = true;
+                    }
+                    catch (FormatException)
+                    {
+                        Anzahl = 0;
+                        keinfehler = false;
+                    }
+                }
+            }
+            else
+            {
+                Anzahl = 0;
+                keinfehler = false;
+            }
+            return keinfehler;
+        }
+
     }
 }
