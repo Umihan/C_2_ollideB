@@ -22,6 +22,8 @@ namespace ConsoleApplication1
         const int seite = 50;
         static int[,] feld = new int[seite, seite];
 
+        
+
         class einer
         {
             // Private Eigenschaften
@@ -29,9 +31,28 @@ namespace ConsoleApplication1
             // Öffentliche Eigenschaften
             public int posx, posy;
             public ConsoleColor farbe;
+
             // Konstruktor
+
+            Random randomGenerator = new Random();  
+
+            /// <summary>
+            /// Erstellt & Initialisiert a nuies Objekt mit zufàlliger Position und Forb
+            /// </summary>
             public einer()
             {
+                do
+                {
+                    //Neue Position generieren
+                    posx = randomGenerator.Next(1, seite);
+                    posy = randomGenerator.Next(1, seite);
+
+                } while (feld[posx, posy] != 0); //Wiederholen, falls Feld besetzt
+
+                feld[posx, posy] = 1; // Feld besetzen
+
+                farbe = (ConsoleColor)randomGenerator.Next(16); // Farbe generieren
+                
             }
             //Private Methoden
             void show()
@@ -153,7 +174,7 @@ namespace ConsoleApplication1
             {
                 for (int j = 0; j < Anzahl; j++)
                 {
-                    meineEiner[j].Move();
+                   meineEiner[j].Move();
                 }
                 System.Threading.Thread.Sleep(10);
 
