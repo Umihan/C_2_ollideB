@@ -65,7 +65,7 @@ namespace ConsoleApplication1
                     //Schaut ob es sich bereits ganz oben befindet
                     if (posy == 0)  //wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz unten)
                     {
-                        posy = seite;
+                        posy = seite - 1;
                     }
                     else  //wenn nicht, dann ganz normal eine Zelle nach oben
                     {
@@ -76,7 +76,7 @@ namespace ConsoleApplication1
                 if (Richtung == 2)
                 {
                     //Schaut ob es sich bereits ganz unten befindet
-                    if (posy == seite) //wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz oben)
+                    if (posy == seite - 1) //wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz oben)
                     {
                         posy = 0;
                     }
@@ -91,7 +91,7 @@ namespace ConsoleApplication1
                     //Schaut ob es sich bereits ganz links befindet
                     if (posx == 0)  //wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz rechts)
                     {
-                        posx = seite;
+                        posx = seite - 1;
                     }
                     else  //wenn nicht, einfach ganz normal eine Zelle nach links
                     {
@@ -103,7 +103,7 @@ namespace ConsoleApplication1
                 if (Richtung == 4)
                 {
                     //Schaut ob es sich bereits ganz rechts befindet
-                    if (posx == seite)//wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz links)
+                    if (posx == seite - 1)//wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz links)
                     {
                         posx = 0;
                     }
