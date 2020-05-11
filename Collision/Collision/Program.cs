@@ -160,9 +160,9 @@ namespace ConsoleApplication1
                 if (Richtung == 1)
                 {
                     //Schaut ob es sich bereits ganz oben befindet
-                    if (posy == 0)  //wenn, dann geht es einfach eine Zelle in die andere Richtung(runter)
+                    if (posy == 0)  //wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz unten)
                     {
-                        posy++;
+                        posy = seite - 1;
                     }
                     else  //wenn nicht, dann ganz normal eine Zelle nach oben
                     {
@@ -173,9 +173,9 @@ namespace ConsoleApplication1
                 if (Richtung == 2)
                 {
                     //Schaut ob es sich bereits ganz unten befindet
-                    if (posy == seite) //wenn, dann geht es einfach eine Zelle in die andere Richtung(hoch)
+                    if (posy == seite - 1) //wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz oben)
                     {
-                        posy--;
+                        posy = 0;
                     }
                     else  //wenn nicht, einfach ganz normal eine Zelle nach unten
                     {
@@ -186,9 +186,9 @@ namespace ConsoleApplication1
                 if (Richtung == 3)
                 {
                     //Schaut ob es sich bereits ganz links befindet
-                    if (posx == 0)  //wenn, dann geht es einfach eine Zelle in die andere Richtung(rechts)
+                    if (posx == 0)  //wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz rechts)
                     {
-                        posx++;
+                        posx = seite - 1;
                     }
                     else  //wenn nicht, einfach ganz normal eine Zelle nach links
                     {
@@ -200,9 +200,9 @@ namespace ConsoleApplication1
                 if (Richtung == 4)
                 {
                     //Schaut ob es sich bereits ganz rechts befindet
-                    if (posx == seite)//wenn, dann geht es einfach eine Zelle in die andere Richtung(links)
+                    if (posx == seite - 1)//wenn, dann springt es einfach auf der gegenüberliegenden Seite wieder ein(ganz links)
                     {
-                        posx--;
+                        posx = 0;
                     }
                     else  //wenn nicht, einfach ganz normal eine Zelle nach rechts
                     {
